@@ -12,7 +12,7 @@ class bankAccount {
 		this.withdraw = function() {
 
 		}
-		// deposit method has no implementation, just for inheritance
+		// deposit method has no implementation, just for inheritance.
 		this.deposit = function() {
 
 		}
