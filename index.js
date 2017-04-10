@@ -6,7 +6,7 @@ class bankAccount {
 
 		// This method displays Name and Balance attributes
 		this.details = function() {
-			return(this.name + ' has a balance of ' + this.balance);
+			console.log(this.name + ' has a balance of ' + this.balance);
 		}
 		// withdraw method has no implementation, just for inheritance
 		this.withdraw = function() {
@@ -29,12 +29,12 @@ class savingsAccount extends bankAccount {
 		this.withdraw = function(amount) {
 			if (isNaN(amount) === false) {
 				if ((this.balance - amount) < this.minBalance) {
-					return ("You can't withdraw more than your minimun balance");
+					console.log ("You can't withdraw more than your minimun balance");
 				} else {
 					this.balance = this.balance - amount;
 				}
 		} else {
-			return("Please enter a number")
+			console.log("Please enter a number")
 		}
 		this.details();
 	};
@@ -43,10 +43,10 @@ class savingsAccount extends bankAccount {
 				if (amount > 0){
 					this.balance = this.balance + amount;
 				} else {
-					return("You can't deposit a negative amount");
+					console.log("You can't deposit a negative amount");
 				}
 			} else {
-				return("Please enter a positive deposit amount")
+				console.log("Please enter a positive deposit amount")
 			}
 			this.details();
 		}
@@ -65,16 +65,18 @@ class currentAccount extends savingsAccount {
 		this.getCredit = function(loanAmount) {
 			if(isNaN(loanAmount) === false) {
 				if(loanAmount > this.credit) {
-					return("You can't get a loan more than your credit")
+					console.log("You can't get a loan more than your credit")
 				} else {
 					this.credit = this.credit - loanAmount;
-					return("your credit balance is " + this.credit);
+					console.log("your credit balance is " + this.credit);
 				}
+			} else {
+				console.log('Please enter a positive number');
 			}
 		};
 		this.changeName = function(newName) {
 			this.name = newName;
-			return('Name changed successfully to ' + newName)
+			console.log('Name changed successfully to ' + newName)
 		}
 	}
 }
